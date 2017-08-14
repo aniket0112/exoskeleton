@@ -13,12 +13,13 @@ for i = 1:5:size(th1)
     line([-a*cosd(t),x1],[-a*sind(t),y1],'Color','red');
     line([x1,xc],[y1,yc],'Color','blue');
 
-    %original line
-    x1 = -a*cosd(t) + b*cosd(t1(i));
-    y1 = -a*sind(t) - b*sind(t1(i));
-    xc = x1 - c*cosd(t2(i));
-    yc = y1 - c*sind(t2(i));
-    
+    if nargin > 6
+        %original line
+        x1 = -a*cosd(t) + b*cosd(t1(i));
+        y1 = -a*sind(t) - b*sind(t1(i));
+        xc = x1 - c*cosd(t2(i));
+        yc = y1 - c*sind(t2(i));
+    end
     line([-a*cosd(t),x1],[-a*sind(t),y1],'Color','red','LineStyle','--');
     line([x1,xc],[y1,yc],'Color','blue','LineStyle','--');
     pause(0.1);
