@@ -1,13 +1,11 @@
-function [ th2,th3 ] = inv_kin(a1,a2,a3,thk,xc,yc)
-%Finding theta 3
-X3 = (xc + a1*sind(thk));
-Y3 = (yc - a1*cosd(thk));
-d3 = abs(sqrt(X3.^2 + Y3.^2));
-D3 = (a2^2 + a3^2 - d3.^2)/(2*a2*a3);
-th3 = 180 - atan2d(abs(sqrt(1-D3.^2)),D3);
+function [ th1,th2 ] = inv_kin(a1,a2,xc,yc)
+%Finding theta 2
+d2 = abs(sqrt(xc.^2 + yc.^2));
+D2 = (a1^2 + a2^2 - d2.^2)/(2*a2*a1);
+th2 = 180 - atan2d(abs(sqrt(1-D2.^2)),D2);
 
-%Find theta 2
-alpha = atan2d(Y3,X3);
-beta = atan2d(a3*sind(th3),a2+a3*cosd(th3));
-th2 = 360-(beta+alpha);
+%Find theta 1
+alpha = atan2d(yc,xc);
+beta = atan2d(a2*sind(th2),a1+a2*cosd(th2));
+th1 = -beta+alpha;
 end
