@@ -1,4 +1,5 @@
 function U = findU(A,Q,i,j,k)
+%Find U_ijk or U_ij
 if nargin < 5
     if j <= i
         U = A{1,j}*Q*A{j,i+1};
