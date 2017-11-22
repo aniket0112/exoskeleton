@@ -1,0 +1,3 @@
+LIBRARY computedTorquePD_sfun.mexw64
+EXPORTS
+mexFunction

@@ -12,5 +12,6 @@ gensys = ss(A,B,C,D);
 
 U = A-B*K;
 lqss = ss(U,[],C,[]);
+figure;
 initial(lqss,x0);
 grid on;
