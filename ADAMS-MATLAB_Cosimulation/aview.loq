@@ -1,0 +1,28 @@
+! Adams View Adams 2017.2 Student Edition (built Jul 12 2017)
+! Graphics:  OpenGL
+! Enter a command, '?', or 'help'.
+model display model=.Exo_tark_controlled view=all
+! >> model display model=.Exo_tark_controlled view=all
+! VERIFY MODEL: .Exo_tark_controlled
+! 
+!   -4 Gruebler Count (approximate degrees of freedom)
+!    7 Moving Parts (not including ground)
+!    6 Revolute Joints
+!    2 Translational Joints
+!    1 Fixed Joints
+! 
+!    2 Degrees of Freedom for .Exo_tark_controlled
+! 
+! There are 6 redundant constraint equations.
+! 
+!    This constraint:                                      unnecessarily removes this DOF:
+! 
+!    .Exo_tark_controlled.JOINT_2  (Revolute Joint)        Rotation Between Zi & Yj
+!    .Exo_tark_controlled.JOINT_3  (Revolute Joint)        Rotation Between Zi & Yj
+!    .Exo_tark_controlled.JOINT_4  (Revolute Joint)        Rotation Between Zi & Xj
+!    .Exo_tark_controlled.JOINT_5  (Revolute Joint)        Rotation Between Zi & Yj
+!    .Exo_tark_controlled.JOINT_7  (Revolute Joint)        Rotation Between Zi & Yj
+!    .Exo_tark_controlled.JOINT_8  (Translational Joint)   Rotation Between Xi & Yj
+! 
+! 
+! Model verified successfully
