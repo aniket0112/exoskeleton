@@ -5,24 +5,32 @@ model display model=.Exo_tark_controlled view=all
 ! >> model display model=.Exo_tark_controlled view=all
 ! VERIFY MODEL: .Exo_tark_controlled
 ! 
-!   -4 Gruebler Count (approximate degrees of freedom)
-!    7 Moving Parts (not including ground)
-!    6 Revolute Joints
-!    2 Translational Joints
+!    2 Gruebler Count (approximate degrees of freedom)
+!    3 Moving Parts (not including ground)
+!    2 Revolute Joints
 !    1 Fixed Joints
 ! 
 !    2 Degrees of Freedom for .Exo_tark_controlled
 ! 
-! There are 6 redundant constraint equations.
-! 
-!    This constraint:                                      unnecessarily removes this DOF:
-! 
-!    .Exo_tark_controlled.JOINT_2  (Revolute Joint)        Rotation Between Zi & Yj
-!    .Exo_tark_controlled.JOINT_3  (Revolute Joint)        Rotation Between Zi & Yj
-!    .Exo_tark_controlled.JOINT_4  (Revolute Joint)        Rotation Between Zi & Xj
-!    .Exo_tark_controlled.JOINT_5  (Revolute Joint)        Rotation Between Zi & Yj
-!    .Exo_tark_controlled.JOINT_7  (Revolute Joint)        Rotation Between Zi & Yj
-!    .Exo_tark_controlled.JOINT_8  (Translational Joint)   Rotation Between Xi & Yj
+! There are no redundant constraint equations.
 ! 
 ! 
 ! Model verified successfully
+view manage orient view=iso up_axis=(.MDI.up_axis) forward_axis=(.MDI.forward_axis)
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! MODIFY View Translate
+undo begin
+default coordinate_system default_coordinate_system=.Exo_tark_controlled
+view center view=.gui.main.front object=-187.0273217711, 16.0001059282, 301.6545674995
+undo end
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+view zoom auto=on
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!  SELECT OBJECT
+undo begin
+undo end
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+

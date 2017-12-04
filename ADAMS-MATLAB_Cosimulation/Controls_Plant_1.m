@@ -38,7 +38,7 @@ else
 end
 ADAMS_exec = '' ;
 ADAMS_host = 'AUM' ;
-ADAMS_cwd ='C:\Users\BhaviK\Desktop\final_year_project\adams_model\three_link_model\exoskeleton model files'  ;
+ADAMS_cwd ='C:\Users\BhaviK\Documents\GitHub\exoskeleton\ADAMS-MATLAB_Cosimulation'  ;
 ADAMS_prefix = 'Controls_Plant_1' ;
 ADAMS_static = 'no' ;
 ADAMS_solver_type = 'C++' ;
@@ -53,8 +53,8 @@ if exist([ADAMS_prefix,'.adm']) == 0
    disp( ' ' ) ;
 end
 ADAMS_init = '' ;
-ADAMS_inputs  = 'Torque_top!Torque_bottom' ;
-ADAMS_outputs = 'Theta_top!Theta_bottom' ;
+ADAMS_inputs  = 'Torque_rear!Torque_front' ;
+ADAMS_outputs = 'Theta_rear!Theta_front' ;
 ADAMS_pinput = 'Controls_Plant_1.ctrl_pinput' ;
 ADAMS_poutput = 'Controls_Plant_1.ctrl_poutput' ;
 ADAMS_uy_ids  = [

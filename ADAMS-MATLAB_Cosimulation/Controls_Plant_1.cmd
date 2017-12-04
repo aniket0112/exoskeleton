@@ -69,80 +69,70 @@ view erase
 !
 !
 data_element create variable  &
-   variable_name = .Exo_tark_controlled.Torque_top  &
+   variable_name = .Exo_tark_controlled.Torque_rear  &
    adams_id = 1  &
    initial_condition = 0.0  &
    function = ""
 !
 data_element create variable  &
-   variable_name = .Exo_tark_controlled.Torque_bottom  &
+   variable_name = .Exo_tark_controlled.Torque_front  &
    adams_id = 2  &
    initial_condition = 0.0  &
    function = ""
 !
 data_element create variable  &
-   variable_name = .Exo_tark_controlled.Theta_top  &
+   variable_name = .Exo_tark_controlled.Theta_rear  &
    adams_id = 3  &
    initial_condition = 0.0  &
    function = ""
 !
 data_element create variable  &
-   variable_name = .Exo_tark_controlled.Theta_bottom  &
+   variable_name = .Exo_tark_controlled.Theta_front  &
    adams_id = 4  &
    initial_condition = 0.0  &
-   function = ""
-!
-data_element create variable  &
-   variable_name = .Exo_tark_controlled.Meas_Bottom_Angle  &
-   adams_id = 5  &
-   function = ""
-!
-data_element create variable  &
-   variable_name = .Exo_tark_controlled.Meas_Top_Angle  &
-   adams_id = 6  &
    function = ""
 !
 data_element create plant input  &
    plant_input_name = .Exo_tark_controlled.PINPUT_1  &
    adams_id = 1  &
    variable_name =  &
-      .Exo_tark_controlled.Torque_top,  &
-      .Exo_tark_controlled.Torque_bottom
+      .Exo_tark_controlled.Torque_rear,  &
+      .Exo_tark_controlled.Torque_front
 !
 data_element create plant input  &
    plant_input_name = .Exo_tark_controlled.Exo_control.ctrl_pinput  &
    adams_id = 2  &
    variable_name =  &
-      .Exo_tark_controlled.Torque_bottom,  &
-      .Exo_tark_controlled.Torque_top
+      .Exo_tark_controlled.Torque_front,  &
+      .Exo_tark_controlled.Torque_rear
 !
 data_element create plant input  &
    plant_input_name = .Exo_tark_controlled.Exo_tark_controlled.ctrl_pinput  &
    adams_id = 3  &
    variable_name =  &
-      .Exo_tark_controlled.Torque_bottom,  &
-      .Exo_tark_controlled.Torque_top
+      .Exo_tark_controlled.Torque_front,  &
+      .Exo_tark_controlled.Torque_rear
 !
 data_element create plant output  &
    plant_output_name = .Exo_tark_controlled.POUTPUT_1  &
    adams_id = 1  &
    variable_name =  &
-      .Exo_tark_controlled.Theta_top,  &
-      .Exo_tark_controlled.Theta_bottom
+      .Exo_tark_controlled.Theta_rear,  &
+      .Exo_tark_controlled.Theta_front
 !
 data_element create plant output  &
    plant_output_name = .Exo_tark_controlled.Exo_control.ctrl_poutput  &
    adams_id = 2  &
    variable_name =  &
-      .Exo_tark_controlled.Theta_bottom,  &
-      .Exo_tark_controlled.Theta_top
+      .Exo_tark_controlled.Theta_front,  &
+      .Exo_tark_controlled.Theta_rear
 !
 data_element create plant output  &
    plant_output_name = .Exo_tark_controlled.Exo_tark_controlled.ctrl_poutput  &
    adams_id = 3  &
    variable_name =  &
-      .Exo_tark_controlled.Theta_bottom,  &
-      .Exo_tark_controlled.Theta_top
+      .Exo_tark_controlled.Theta_front,  &
+      .Exo_tark_controlled.Theta_rear
 !
 !-------------------------------- Rigid Parts ---------------------------------!
 !
@@ -287,6 +277,11 @@ part create rigid_body mass_properties  &
 !
 ! ****** Graphics for current part ******
 !
+part attributes  &
+   part_name = .Exo_tark_controlled.piston_10cm  &
+   active = off  &
+   visibility = off
+!
 !------------------------------- pistonrod_10cm -------------------------------!
 !
 !
@@ -340,6 +335,11 @@ part create rigid_body mass_properties  &
    iyz = 0.0
 !
 ! ****** Graphics for current part ******
+!
+part attributes  &
+   part_name = .Exo_tark_controlled.pistonrod_10cm  &
+   active = off  &
+   visibility = off
 !
 !---------------------------------- rear_arm ----------------------------------!
 !
@@ -479,6 +479,11 @@ part create rigid_body mass_properties  &
 !
 ! ****** Graphics for current part ******
 !
+part attributes  &
+   part_name = .Exo_tark_controlled.piston_25cm  &
+   active = off  &
+   visibility = off
+!
 !------------------------------- pistonrod_25cm -------------------------------!
 !
 !
@@ -532,6 +537,11 @@ part create rigid_body mass_properties  &
    iyz = 0.0
 !
 ! ****** Graphics for current part ******
+!
+part attributes  &
+   part_name = .Exo_tark_controlled.pistonrod_25cm  &
+   active = off  &
+   visibility = off
 !
 !---------------------------------- fore_arm ----------------------------------!
 !
@@ -650,6 +660,10 @@ contact create  &
    stiction_transition_velocity = 100.0  &
    friction_transition_velocity = 1000.0
 !
+force attributes  &
+   force_name = .Exo_tark_controlled.CONTACT_1  &
+   active = off
+!
 contact create  &
    contact_name = .Exo_tark_controlled.CONTACT_2  &
    adams_id = 2  &
@@ -664,6 +678,10 @@ contact create  &
    stiction_transition_velocity = 100.0  &
    friction_transition_velocity = 1000.0
 !
+force attributes  &
+   force_name = .Exo_tark_controlled.CONTACT_2  &
+   active = off
+!
 contact create  &
    contact_name = .Exo_tark_controlled.CONTACT_3  &
    adams_id = 3  &
@@ -677,6 +695,10 @@ contact create  &
    mu_dynamic = 0.1  &
    stiction_transition_velocity = 100.0  &
    friction_transition_velocity = 1000.0
+!
+force attributes  &
+   force_name = .Exo_tark_controlled.CONTACT_3  &
+   active = off
 !
 contact create  &
    contact_name = .Exo_tark_controlled.CONTACT_4  &
@@ -706,6 +728,10 @@ contact create  &
    stiction_transition_velocity = 100.0  &
    friction_transition_velocity = 1000.0
 !
+force attributes  &
+   force_name = .Exo_tark_controlled.CONTACT_5  &
+   active = off
+!
 contact create  &
    contact_name = .Exo_tark_controlled.CONTACT_6  &
    adams_id = 6  &
@@ -734,6 +760,10 @@ contact create  &
    stiction_transition_velocity = 100.0  &
    friction_transition_velocity = 1000.0
 !
+force attributes  &
+   force_name = .Exo_tark_controlled.CONTACT_7  &
+   active = off
+!
 contact create  &
    contact_name = .Exo_tark_controlled.CONTACT_8  &
    adams_id = 8  &
@@ -747,6 +777,10 @@ contact create  &
    mu_dynamic = 0.1  &
    stiction_transition_velocity = 100.0  &
    friction_transition_velocity = 1000.0
+!
+force attributes  &
+   force_name = .Exo_tark_controlled.CONTACT_8  &
+   active = off
 !
 contact create  &
    contact_name = .Exo_tark_controlled.CONTACT_9  &
@@ -762,6 +796,10 @@ contact create  &
    stiction_transition_velocity = 100.0  &
    friction_transition_velocity = 1000.0
 !
+force attributes  &
+   force_name = .Exo_tark_controlled.CONTACT_9  &
+   active = off
+!
 contact create  &
    contact_name = .Exo_tark_controlled.CONTACT_10  &
    adams_id = 10  &
@@ -775,6 +813,10 @@ contact create  &
    mu_dynamic = 0.1  &
    stiction_transition_velocity = 100.0  &
    friction_transition_velocity = 1000.0
+!
+force attributes  &
+   force_name = .Exo_tark_controlled.CONTACT_10  &
+   active = off
 !
 contact create  &
    contact_name = .Exo_tark_controlled.CONTACT_11  &
@@ -790,6 +832,10 @@ contact create  &
    stiction_transition_velocity = 100.0  &
    friction_transition_velocity = 1000.0
 !
+force attributes  &
+   force_name = .Exo_tark_controlled.CONTACT_11  &
+   active = off
+!
 contact create  &
    contact_name = .Exo_tark_controlled.CONTACT_12  &
    adams_id = 12  &
@@ -803,6 +849,10 @@ contact create  &
    mu_dynamic = 0.1  &
    stiction_transition_velocity = 100.0  &
    friction_transition_velocity = 1000.0
+!
+force attributes  &
+   force_name = .Exo_tark_controlled.CONTACT_12  &
+   active = off
 !
 contact create  &
    contact_name = .Exo_tark_controlled.CONTACT_13  &
@@ -818,6 +868,10 @@ contact create  &
    stiction_transition_velocity = 100.0  &
    friction_transition_velocity = 1000.0
 !
+force attributes  &
+   force_name = .Exo_tark_controlled.CONTACT_13  &
+   active = off
+!
 contact create  &
    contact_name = .Exo_tark_controlled.CONTACT_14  &
    adams_id = 14  &
@@ -832,6 +886,10 @@ contact create  &
    stiction_transition_velocity = 100.0  &
    friction_transition_velocity = 1000.0
 !
+force attributes  &
+   force_name = .Exo_tark_controlled.CONTACT_14  &
+   active = off
+!
 contact create  &
    contact_name = .Exo_tark_controlled.CONTACT_15  &
    adams_id = 15  &
@@ -840,6 +898,26 @@ contact create  &
    j_geometry_name = .Exo_tark_controlled.pistonrod_25cm.SOLID6  &
    penalty = 1000.0  &
    restitution_coefficient = 1.0  &
+   coulomb_friction = on  &
+   mu_static = 0.3  &
+   mu_dynamic = 0.1  &
+   stiction_transition_velocity = 100.0  &
+   friction_transition_velocity = 1000.0
+!
+force attributes  &
+   force_name = .Exo_tark_controlled.CONTACT_15  &
+   active = off
+!
+contact create  &
+   contact_name = .Exo_tark_controlled.CONTACT_16  &
+   adams_id = 16  &
+   type = solid_to_solid  &
+   i_geometry_name = .Exo_tark_controlled.bodyframe.SOLID1  &
+   j_geometry_name = .Exo_tark_controlled.fore_arm.SOLID7  &
+   stiffness = 1.0E+05  &
+   damping = 10.0  &
+   exponent = 2.2  &
+   dmax = 0.1  &
    coulomb_friction = on  &
    mu_static = 0.3  &
    mu_dynamic = 0.1  &
@@ -861,11 +939,19 @@ constraint create joint revolute  &
    i_marker_name = .Exo_tark_controlled.bodyframe.MARKER_3  &
    j_marker_name = .Exo_tark_controlled.piston_10cm.MARKER_4
 !
+constraint attributes  &
+   constraint_name = .Exo_tark_controlled.JOINT_2  &
+   active = off
+!
 constraint create joint revolute  &
    joint_name = .Exo_tark_controlled.JOINT_3  &
    adams_id = 3  &
    i_marker_name = .Exo_tark_controlled.pistonrod_10cm.MARKER_5  &
    j_marker_name = .Exo_tark_controlled.rear_arm.MARKER_6
+!
+constraint attributes  &
+   constraint_name = .Exo_tark_controlled.JOINT_3  &
+   active = off
 !
 constraint create joint revolute  &
    joint_name = .Exo_tark_controlled.JOINT_4  &
@@ -879,6 +965,10 @@ constraint create joint revolute  &
    i_marker_name = .Exo_tark_controlled.piston_25cm.MARKER_9  &
    j_marker_name = .Exo_tark_controlled.rear_arm.MARKER_10
 !
+constraint attributes  &
+   constraint_name = .Exo_tark_controlled.JOINT_5  &
+   active = off
+!
 constraint create joint revolute  &
    joint_name = .Exo_tark_controlled.JOINT_6  &
    adams_id = 6  &
@@ -891,11 +981,19 @@ constraint create joint revolute  &
    i_marker_name = .Exo_tark_controlled.fore_arm.MARKER_13  &
    j_marker_name = .Exo_tark_controlled.pistonrod_25cm.MARKER_14
 !
+constraint attributes  &
+   constraint_name = .Exo_tark_controlled.JOINT_7  &
+   active = off
+!
 constraint create joint translational  &
    joint_name = .Exo_tark_controlled.JOINT_8  &
    adams_id = 8  &
    i_marker_name = .Exo_tark_controlled.piston_25cm.MARKER_15  &
    j_marker_name = .Exo_tark_controlled.pistonrod_25cm.MARKER_16
+!
+constraint attributes  &
+   constraint_name = .Exo_tark_controlled.JOINT_8  &
+   active = off
 !
 constraint create joint translational  &
    joint_name = .Exo_tark_controlled.JOINT_9  &
@@ -903,11 +1001,15 @@ constraint create joint translational  &
    i_marker_name = .Exo_tark_controlled.pistonrod_10cm.MARKER_17  &
    j_marker_name = .Exo_tark_controlled.piston_10cm.MARKER_18
 !
+constraint attributes  &
+   constraint_name = .Exo_tark_controlled.JOINT_9  &
+   active = off
+!
 !----------------------------------- Forces -----------------------------------!
 !
 !
 force create direct single_component_force  &
-   single_component_force_name = .Exo_tark_controlled.Top_Tark  &
+   single_component_force_name = .Exo_tark_controlled.Rear_Tark  &
    adams_id = 1  &
    type_of_freedom = rotational  &
    i_marker_name = .Exo_tark_controlled.rear_arm.MARKER_39  &
@@ -916,7 +1018,7 @@ force create direct single_component_force  &
    function = ""
 !
 force create direct single_component_force  &
-   single_component_force_name = .Exo_tark_controlled.Bottom_Tark  &
+   single_component_force_name = .Exo_tark_controlled.Front_Tark  &
    adams_id = 2  &
    type_of_freedom = rotational  &
    i_marker_name = .Exo_tark_controlled.fore_arm.MARKER_41  &
@@ -952,14 +1054,14 @@ ude create instance  &
 variable modify  &
    variable_name = .Exo_tark_controlled.Controls_Plant_1.input_channels  &
    object_value =   &
-      .Exo_tark_controlled.Torque_top,  &
-      .Exo_tark_controlled.Torque_bottom
+      .Exo_tark_controlled.Torque_rear,  &
+      .Exo_tark_controlled.Torque_front
 !
 variable modify  &
    variable_name = .Exo_tark_controlled.Controls_Plant_1.output_channels  &
    object_value =   &
-      .Exo_tark_controlled.Theta_top,  &
-      .Exo_tark_controlled.Theta_bottom
+      .Exo_tark_controlled.Theta_rear,  &
+      .Exo_tark_controlled.Theta_front
 !
 variable modify  &
    variable_name = .Exo_tark_controlled.Controls_Plant_1.file_name  &
@@ -1027,14 +1129,24 @@ defaults coordinate_system  &
 geometry create shape force  &
    force_name = .Exo_tark_controlled.SFORCE_1_force_graphic_1  &
    adams_id = 61  &
-   force_element_name = .Exo_tark_controlled.Top_Tark  &
+   force_element_name = .Exo_tark_controlled.Rear_Tark  &
    applied_at_marker_name = .Exo_tark_controlled.rear_arm.MARKER_39
 !
 geometry create shape force  &
    force_name = .Exo_tark_controlled.SFORCE_2_force_graphic_1  &
    adams_id = 62  &
-   force_element_name = .Exo_tark_controlled.Bottom_Tark  &
+   force_element_name = .Exo_tark_controlled.Front_Tark  &
    applied_at_marker_name = .Exo_tark_controlled.fore_arm.MARKER_41
+!
+geometry create shape gcontact  &
+   contact_force_name = .Exo_tark_controlled.GCONTACT_71  &
+   adams_id = 71  &
+   contact_element_name = .Exo_tark_controlled.CONTACT_16  &
+   force_display = components
+!
+geometry attributes  &
+   geometry_name = .Exo_tark_controlled.GCONTACT_71  &
+   color = RED
 !
 !---------------------------------- Accgrav -----------------------------------!
 !
@@ -1048,6 +1160,29 @@ force create body gravitational  &
 !----------------------------- Analysis settings ------------------------------!
 !
 !
+!---------------------------------- Measures ----------------------------------!
+!
+!
+measure create angle  &
+   measure_name = .Exo_tark_controlled.MEAS_ANGLE_TOP  &
+   first_point = .Exo_tark_controlled.bodyframe.MARKER_38  &
+   middle_point = .Exo_tark_controlled.rear_arm.MARKER_8  &
+   last_point = .Exo_tark_controlled.rear_arm.cm
+!
+data_element attributes  &
+   data_element_name = .Exo_tark_controlled.MEAS_ANGLE_TOP  &
+   color = WHITE
+!
+measure create angle  &
+   measure_name = .Exo_tark_controlled.MEAS_ANGLE_BOTTOM  &
+   first_point = .Exo_tark_controlled.rear_arm.cm  &
+   middle_point = .Exo_tark_controlled.fore_arm.MARKER_12  &
+   last_point = .Exo_tark_controlled.fore_arm.cm
+!
+data_element attributes  &
+   data_element_name = .Exo_tark_controlled.MEAS_ANGLE_BOTTOM  &
+   color = WHITE
+!
 !---------------------------- Adams View Variables ----------------------------!
 !
 !
@@ -1059,36 +1194,28 @@ variable create  &
 !
 !
 data_element modify variable  &
-   variable_name = .Exo_tark_controlled.Torque_top  &
+   variable_name = .Exo_tark_controlled.Torque_rear  &
    function = "0"
 !
 data_element modify variable  &
-   variable_name = .Exo_tark_controlled.Torque_bottom  &
+   variable_name = .Exo_tark_controlled.Torque_front  &
    function = "0"
 !
 data_element modify variable  &
-   variable_name = .Exo_tark_controlled.Theta_top  &
-   function = "VARVAL(.Exo_tark_controlled.Meas_Top_Angle)"
+   variable_name = .Exo_tark_controlled.Theta_rear  &
+   function = ".Exo_tark_controlled.MEAS_ANGLE_TOP"
 !
 data_element modify variable  &
-   variable_name = .Exo_tark_controlled.Theta_bottom  &
-   function = "VARVAL(.Exo_tark_controlled.Meas_Bottom_Angle)"
-!
-data_element modify variable  &
-   variable_name = .Exo_tark_controlled.Meas_Bottom_Angle  &
-   function = "RTOD*INCANG(.Exo_tark_controlled.rear_arm.cm,.Exo_tark_controlled.fore_arm.MARKER_12,.Exo_tark_controlled.fore_arm.cm)"
-!
-data_element modify variable  &
-   variable_name = .Exo_tark_controlled.Meas_Top_Angle  &
-   function = "RTOD*INCANG(.Exo_tark_controlled.bodyframe.MARKER_38,.Exo_tark_controlled.rear_arm.MARKER_8,.Exo_tark_controlled.rear_arm.cm)"
+   variable_name = .Exo_tark_controlled.Theta_front  &
+   function = ".Exo_tark_controlled.MEAS_ANGLE_BOTTOM"
 !
 force modify direct single_component_force  &
-   single_component_force_name = .Exo_tark_controlled.Top_Tark  &
-   function = "VARVAL(.Exo_tark_controlled.Torque_top)"
+   single_component_force_name = .Exo_tark_controlled.Rear_Tark  &
+   function = "VARVAL(.Exo_tark_controlled.Torque_rear)"
 !
 force modify direct single_component_force  &
-   single_component_force_name = .Exo_tark_controlled.Bottom_Tark  &
-   function = "VARVAL(.Exo_tark_controlled.Torque_bottom)"
+   single_component_force_name = .Exo_tark_controlled.Front_Tark  &
+   function = "VARVAL(.Exo_tark_controlled.Torque_front)"
 !
 !-------------------------- Adams View UDE Instance ---------------------------!
 !

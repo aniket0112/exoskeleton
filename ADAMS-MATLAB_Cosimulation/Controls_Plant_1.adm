@@ -59,64 +59,64 @@ MARKER/38
 , QP = -312.5, -3.375077995E-14, -50
 !
 !                         adams_view_name='piston_10cm'
-PART/3
-, QG = 0, -28.55120658, 4.497397613
-, REULER = 0D, 15.78182854D, 0D
-, MASS = 0.3781808108
-, CM = 29
-, IP = 1207.70218, 1206.836224, 49.30338076
+!PART/3
+!, QG = 0, -28.55120658, 4.497397613
+!, REULER = 0D, 15.78182854D, 0D
+!, MASS = 0.3781808108
+!, CM = 29
+!, IP = 1207.70218, 1206.836224, 49.30338076
 !
 !                           adams_view_name='MARKER_4'
-MARKER/4
-, PART = 3
-, QP = -291, -30.5, -100.75
-, REULER = 270D, 90D, 180D
+!MARKER/4
+!, PART = 3
+!, QP = -291, -30.5, -100.75
+!, REULER = 270D, 90D, 180D
 !
 !                          adams_view_name='MARKER_18'
-MARKER/18
-, PART = 3
-, QP = -300.5, -36.00614898, 96.17303655
-, REULER = 0D, 1.601625318D, 0D
+!MARKER/18
+!, PART = 3
+!, QP = -300.5, -36.00614898, 96.17303655
+!, REULER = 0D, 1.601625318D, 0D
 !
 !                            adams_view_name='PSMAR'
-MARKER/20
-, PART = 3
+!MARKER/20
+!, PART = 3
 !
 !                              adams_view_name='cm'
-MARKER/29
-, PART = 3
-, QP = -300.5, -33.08496175, -8.30089999
-, REULER = 0D, 1.601625318D, 0D
+!MARKER/29
+!, PART = 3
+!, QP = -300.5, -33.08496175, -8.30089999
+!, REULER = 0D, 1.601625318D, 0D
 !
 !                        adams_view_name='pistonrod_10cm'
-PART/4
-, QG = 0, -23.48849757, -11.67409075
-, REULER = 0D, 15.78182854D, 0D
-, MASS = 0.0470533327
-, CM = 30
-, IP = 143.5920494, 143.5213431, 0.9275983666
+!PART/4
+!, QG = 0, -23.48849757, -11.67409075
+!, REULER = 0D, 15.78182854D, 0D
+!, MASS = 0.0470533327
+!, CM = 30
+!, IP = 143.5920494, 143.5213431, 0.9275983666
 !
 !                           adams_view_name='MARKER_5'
-MARKER/5
-, PART = 4
-, QP = -300.5, -38.50723391, 185.6223489
-, REULER = 270D, 90D, 180D
+!MARKER/5
+!, PART = 4
+!, QP = -300.5, -38.50723391, 185.6223489
+!, REULER = 270D, 90D, 180D
 !
 !                          adams_view_name='MARKER_17'
-MARKER/17
-, PART = 4
-, QP = -300.5, -36.00614898, 96.17303655
-, REULER = 0D, 1.601625318D, 0D
+!MARKER/17
+!, PART = 4
+!, QP = -300.5, -36.00614898, 96.17303655
+!, REULER = 0D, 1.601625318D, 0D
 !
 !                            adams_view_name='PSMAR'
-MARKER/21
-, PART = 4
+!MARKER/21
+!, PART = 4
 !
 !                              adams_view_name='cm'
-MARKER/30
-, PART = 4
-, QP = -300.4999798, -36.80329197, 124.6825836
-, REULER = 6.242513616E-04D, 1.601616097D, 359.9997613D
+!MARKER/30
+!, PART = 4
+!, QP = -300.4999798, -36.80329197, 124.6825836
+!, REULER = 6.242513616E-04D, 1.601616097D, 359.9997613D
 !
 !                           adams_view_name='rear_arm'
 PART/5
@@ -179,62 +179,62 @@ MARKER/40
 , REULER = 270D, 90D, 202.0571458D
 !
 !                         adams_view_name='piston_25cm'
-PART/6
-, QG = -5.684341886E-14, -34.3460915, 3.914045574
-, MASS = 0.5711383029
-, CM = 32
-, IP = 6148.4115, 6147.545544, 64.41182526
+!PART/6
+!, QG = -5.684341886E-14, -34.3460915, 3.914045574
+!, MASS = 0.5711383029
+!, CM = 32
+!, IP = 6148.4115, 6147.545544, 64.41182526
 !
 !                           adams_view_name='MARKER_9'
-MARKER/9
-, PART = 6
-, QP = -307.25, 27.21431793, 71.15601691
-, REULER = 270D, 90D, 180D
+!MARKER/9
+!, PART = 6
+!, QP = -307.25, 27.21431793, 71.15601691
+!, REULER = 270D, 90D, 180D
 !
 !                          adams_view_name='MARKER_15'
-MARKER/15
-, PART = 6
-, QP = -300, 88.32430519, 422.5858849
-, REULER = 180D, 9.864501276D, 180D
+!MARKER/15
+!, PART = 6
+!, QP = -300, 88.32430519, 422.5858849
+!, REULER = 180D, 9.864501276D, 180D
 !
 !                            adams_view_name='PSMAR'
-MARKER/23
-, PART = 6
+!MARKER/23
+!, PART = 6
 !
 !                              adams_view_name='cm'
-MARKER/32
-, PART = 6
-, QP = -300, 56.5919422, 240.100163
-, REULER = 180D, 9.864501276D, 180D
+!MARKER/32
+!, PART = 6
+!, QP = -300, 56.5919422, 240.100163
+!, REULER = 180D, 9.864501276D, 180D
 !
 !                        adams_view_name='pistonrod_25cm'
-PART/7
-, QG = 0, -51.47796385, -94.60752034
-, MASS = 0.0793329776
-, CM = 33
-, IP = 811.1713624, 811.1006503, 1.331094337
+!PART/7
+!, QG = 0, -51.47796385, -94.60752034
+!, MASS = 0.0793329776
+!, CM = 33
+!, IP = 811.1713624, 811.1006503, 1.331094337
 !
 !                          adams_view_name='MARKER_14'
-MARKER/14
-, PART = 7
-, QP = -290.8348486, 114.677792, 574.1388929
-, REULER = 90D, 90D, 0D
+!MARKER/14
+!, PART = 7
+!, QP = -290.8348486, 114.677792, 574.1388929
+!, REULER = 90D, 90D, 0D
 !
 !                          adams_view_name='MARKER_16'
-MARKER/16
-, PART = 7
-, QP = -300, 88.32430519, 422.5858849
-, REULER = 180D, 9.864501276D, 180D
+!MARKER/16
+!, PART = 7
+!, QP = -300, 88.32430519, 422.5858849
+!, REULER = 180D, 9.864501276D, 180D
 !
 !                            adams_view_name='PSMAR'
-MARKER/24
-, PART = 7
+!MARKER/24
+!, PART = 7
 !
 !                              adams_view_name='cm'
-MARKER/33
-, PART = 7
-, QP = -300.0000249, 90.45245714, 434.8244469
-, REULER = 180.0000841D, 9.864497914D, 180.0005746D
+!MARKER/33
+!, PART = 7
+!, QP = -300.0000249, 90.45245714, 434.8244469
+!, REULER = 180.0000841D, 9.864497914D, 180.0005746D
 !
 !                           adams_view_name='fore_arm'
 PART/8
@@ -279,46 +279,46 @@ MARKER/42
 , REULER = 90D, 90D, 21.51288389D
 !
 !                          adams_view_name='CONTACT_1'
-CONTACT/1
-, TYPE = SOLID_TO_SOLID
-, IGEOM = 2
-, JGEOM = 3
-, POISSON
-, PENALTY = 1000
-, RESTITUTION_COEFFICIENT = 1
-, COULOMB_FRICTION = ON
-, MU_STATIC = 0.3
-, MU_DYNAMIC = 0.1
-, STICTION_TRANSITION_VELOCITY = 100
-, FRICTION_TRANSITION_VELOCITY = 1000
+!CONTACT/1
+!, TYPE = SOLID_TO_SOLID
+!, IGEOM = 2
+!, JGEOM = 3
+!, POISSON
+!, PENALTY = 1000
+!, RESTITUTION_COEFFICIENT = 1
+!, COULOMB_FRICTION = ON
+!, MU_STATIC = 0.3
+!, MU_DYNAMIC = 0.1
+!, STICTION_TRANSITION_VELOCITY = 100
+!, FRICTION_TRANSITION_VELOCITY = 1000
 !
 !                          adams_view_name='CONTACT_2'
-CONTACT/2
-, TYPE = SOLID_TO_SOLID
-, IGEOM = 5
-, JGEOM = 6
-, POISSON
-, PENALTY = 1000
-, RESTITUTION_COEFFICIENT = 1
-, COULOMB_FRICTION = ON
-, MU_STATIC = 0.3
-, MU_DYNAMIC = 0.1
-, STICTION_TRANSITION_VELOCITY = 100
-, FRICTION_TRANSITION_VELOCITY = 1000
+!CONTACT/2
+!, TYPE = SOLID_TO_SOLID
+!, IGEOM = 5
+!, JGEOM = 6
+!, POISSON
+!, PENALTY = 1000
+!, RESTITUTION_COEFFICIENT = 1
+!, COULOMB_FRICTION = ON
+!, MU_STATIC = 0.3
+!, MU_DYNAMIC = 0.1
+!, STICTION_TRANSITION_VELOCITY = 100
+!, FRICTION_TRANSITION_VELOCITY = 1000
 !
 !                          adams_view_name='CONTACT_3'
-CONTACT/3
-, TYPE = SOLID_TO_SOLID
-, IGEOM = 7
-, JGEOM = 6
-, POISSON
-, PENALTY = 1000
-, RESTITUTION_COEFFICIENT = 1
-, COULOMB_FRICTION = ON
-, MU_STATIC = 0.3
-, MU_DYNAMIC = 0.1
-, STICTION_TRANSITION_VELOCITY = 100
-, FRICTION_TRANSITION_VELOCITY = 1000
+!CONTACT/3
+!, TYPE = SOLID_TO_SOLID
+!, IGEOM = 7
+!, JGEOM = 6
+!, POISSON
+!, PENALTY = 1000
+!, RESTITUTION_COEFFICIENT = 1
+!, COULOMB_FRICTION = ON
+!, MU_STATIC = 0.3
+!, MU_DYNAMIC = 0.1
+!, STICTION_TRANSITION_VELOCITY = 100
+!, FRICTION_TRANSITION_VELOCITY = 1000
 !
 !                          adams_view_name='CONTACT_4'
 CONTACT/4
@@ -335,18 +335,18 @@ CONTACT/4
 , FRICTION_TRANSITION_VELOCITY = 1000
 !
 !                          adams_view_name='CONTACT_5'
-CONTACT/5
-, TYPE = SOLID_TO_SOLID
-, IGEOM = 4
-, JGEOM = 3
-, POISSON
-, PENALTY = 1000
-, RESTITUTION_COEFFICIENT = 1
-, COULOMB_FRICTION = ON
-, MU_STATIC = 0.3
-, MU_DYNAMIC = 0.1
-, STICTION_TRANSITION_VELOCITY = 100
-, FRICTION_TRANSITION_VELOCITY = 1000
+!CONTACT/5
+!, TYPE = SOLID_TO_SOLID
+!, IGEOM = 4
+!, JGEOM = 3
+!, POISSON
+!, PENALTY = 1000
+!, RESTITUTION_COEFFICIENT = 1
+!, COULOMB_FRICTION = ON
+!, MU_STATIC = 0.3
+!, MU_DYNAMIC = 0.1
+!, STICTION_TRANSITION_VELOCITY = 100
+!, FRICTION_TRANSITION_VELOCITY = 1000
 !
 !                          adams_view_name='CONTACT_6'
 CONTACT/6
@@ -363,130 +363,130 @@ CONTACT/6
 , FRICTION_TRANSITION_VELOCITY = 1000
 !
 !                          adams_view_name='CONTACT_7'
-CONTACT/7
-, TYPE = SOLID_TO_SOLID
-, IGEOM = 2
-, JGEOM = 1
-, POISSON
-, PENALTY = 1000
-, RESTITUTION_COEFFICIENT = 1
-, COULOMB_FRICTION = ON
-, MU_STATIC = 0.3
-, MU_DYNAMIC = 0.1
-, STICTION_TRANSITION_VELOCITY = 100
-, FRICTION_TRANSITION_VELOCITY = 1000
+!CONTACT/7
+!, TYPE = SOLID_TO_SOLID
+!, IGEOM = 2
+!, JGEOM = 1
+!, POISSON
+!, PENALTY = 1000
+!, RESTITUTION_COEFFICIENT = 1
+!, COULOMB_FRICTION = ON
+!, MU_STATIC = 0.3
+!, MU_DYNAMIC = 0.1
+!, STICTION_TRANSITION_VELOCITY = 100
+!, FRICTION_TRANSITION_VELOCITY = 1000
 !
 !                          adams_view_name='CONTACT_8'
-CONTACT/8
-, TYPE = SOLID_TO_SOLID
-, IGEOM = 4
-, JGEOM = 5
-, POISSON
-, PENALTY = 1000
-, RESTITUTION_COEFFICIENT = 1
-, COULOMB_FRICTION = ON
-, MU_STATIC = 0.3
-, MU_DYNAMIC = 0.1
-, STICTION_TRANSITION_VELOCITY = 100
-, FRICTION_TRANSITION_VELOCITY = 1000
+!CONTACT/8
+!, TYPE = SOLID_TO_SOLID
+!, IGEOM = 4
+!, JGEOM = 5
+!, POISSON
+!, PENALTY = 1000
+!, RESTITUTION_COEFFICIENT = 1
+!, COULOMB_FRICTION = ON
+!, MU_STATIC = 0.3
+!, MU_DYNAMIC = 0.1
+!, STICTION_TRANSITION_VELOCITY = 100
+!, FRICTION_TRANSITION_VELOCITY = 1000
 !
 !                          adams_view_name='CONTACT_9'
-CONTACT/9
-, TYPE = SOLID_TO_SOLID
-, IGEOM = 4
-, JGEOM = 6
-, POISSON
-, PENALTY = 1000
-, RESTITUTION_COEFFICIENT = 1
-, COULOMB_FRICTION = ON
-, MU_STATIC = 0.3
-, MU_DYNAMIC = 0.1
-, STICTION_TRANSITION_VELOCITY = 100
-, FRICTION_TRANSITION_VELOCITY = 1000
+!CONTACT/9
+!, TYPE = SOLID_TO_SOLID
+!, IGEOM = 4
+!, JGEOM = 6
+!, POISSON
+!, PENALTY = 1000
+!, RESTITUTION_COEFFICIENT = 1
+!, COULOMB_FRICTION = ON
+!, MU_STATIC = 0.3
+!, MU_DYNAMIC = 0.1
+!, STICTION_TRANSITION_VELOCITY = 100
+!, FRICTION_TRANSITION_VELOCITY = 1000
 !
 !                          adams_view_name='CONTACT_10'
-CONTACT/10
-, TYPE = SOLID_TO_SOLID
-, IGEOM = 7
-, JGEOM = 5
-, POISSON
-, PENALTY = 1000
-, RESTITUTION_COEFFICIENT = 1
-, COULOMB_FRICTION = ON
-, MU_STATIC = 0.3
-, MU_DYNAMIC = 0.1
-, STICTION_TRANSITION_VELOCITY = 100
-, FRICTION_TRANSITION_VELOCITY = 1000
+!CONTACT/10
+!, TYPE = SOLID_TO_SOLID
+!, IGEOM = 7
+!, JGEOM = 5
+!, POISSON
+!, PENALTY = 1000
+!, RESTITUTION_COEFFICIENT = 1
+!, COULOMB_FRICTION = ON
+!, MU_STATIC = 0.3
+!, MU_DYNAMIC = 0.1
+!, STICTION_TRANSITION_VELOCITY = 100
+!, FRICTION_TRANSITION_VELOCITY = 1000
 !
 !                          adams_view_name='CONTACT_11'
-CONTACT/11
-, TYPE = SOLID_TO_SOLID
-, IGEOM = 4
-, JGEOM = 2
-, POISSON
-, PENALTY = 1000
-, RESTITUTION_COEFFICIENT = 1
-, COULOMB_FRICTION = ON
-, MU_STATIC = 0.3
-, MU_DYNAMIC = 0.1
-, STICTION_TRANSITION_VELOCITY = 100
-, FRICTION_TRANSITION_VELOCITY = 1000
+!CONTACT/11
+!, TYPE = SOLID_TO_SOLID
+!, IGEOM = 4
+!, JGEOM = 2
+!, POISSON
+!, PENALTY = 1000
+!, RESTITUTION_COEFFICIENT = 1
+!, COULOMB_FRICTION = ON
+!, MU_STATIC = 0.3
+!, MU_DYNAMIC = 0.1
+!, STICTION_TRANSITION_VELOCITY = 100
+!, FRICTION_TRANSITION_VELOCITY = 1000
 !
 !                          adams_view_name='CONTACT_12'
-CONTACT/12
-, TYPE = SOLID_TO_SOLID
-, IGEOM = 3
-, JGEOM = 6
-, POISSON
-, PENALTY = 1000
-, RESTITUTION_COEFFICIENT = 1
-, COULOMB_FRICTION = ON
-, MU_STATIC = 0.3
-, MU_DYNAMIC = 0.1
-, STICTION_TRANSITION_VELOCITY = 100
-, FRICTION_TRANSITION_VELOCITY = 1000
+!CONTACT/12
+!, TYPE = SOLID_TO_SOLID
+!, IGEOM = 3
+!, JGEOM = 6
+!, POISSON
+!, PENALTY = 1000
+!, RESTITUTION_COEFFICIENT = 1
+!, COULOMB_FRICTION = ON
+!, MU_STATIC = 0.3
+!, MU_DYNAMIC = 0.1
+!, STICTION_TRANSITION_VELOCITY = 100
+!, FRICTION_TRANSITION_VELOCITY = 1000
 !
 !                          adams_view_name='CONTACT_13'
-CONTACT/13
-, TYPE = SOLID_TO_SOLID
-, IGEOM = 3
-, JGEOM = 5
-, POISSON
-, PENALTY = 1000
-, RESTITUTION_COEFFICIENT = 1
-, COULOMB_FRICTION = ON
-, MU_STATIC = 0.3
-, MU_DYNAMIC = 0.1
-, STICTION_TRANSITION_VELOCITY = 100
-, FRICTION_TRANSITION_VELOCITY = 1000
+!CONTACT/13
+!, TYPE = SOLID_TO_SOLID
+!, IGEOM = 3
+!, JGEOM = 5
+!, POISSON
+!, PENALTY = 1000
+!, RESTITUTION_COEFFICIENT = 1
+!, COULOMB_FRICTION = ON
+!, MU_STATIC = 0.3
+!, MU_DYNAMIC = 0.1
+!, STICTION_TRANSITION_VELOCITY = 100
+!, FRICTION_TRANSITION_VELOCITY = 1000
 !
 !                          adams_view_name='CONTACT_14'
-CONTACT/14
-, TYPE = SOLID_TO_SOLID
-, IGEOM = 2
-, JGEOM = 5
-, POISSON
-, PENALTY = 1000
-, RESTITUTION_COEFFICIENT = 1
-, COULOMB_FRICTION = ON
-, MU_STATIC = 0.3
-, MU_DYNAMIC = 0.1
-, STICTION_TRANSITION_VELOCITY = 100
-, FRICTION_TRANSITION_VELOCITY = 1000
+!CONTACT/14
+!, TYPE = SOLID_TO_SOLID
+!, IGEOM = 2
+!, JGEOM = 5
+!, POISSON
+!, PENALTY = 1000
+!, RESTITUTION_COEFFICIENT = 1
+!, COULOMB_FRICTION = ON
+!, MU_STATIC = 0.3
+!, MU_DYNAMIC = 0.1
+!, STICTION_TRANSITION_VELOCITY = 100
+!, FRICTION_TRANSITION_VELOCITY = 1000
 !
 !                          adams_view_name='CONTACT_15'
-CONTACT/15
-, TYPE = SOLID_TO_SOLID
-, IGEOM = 2
-, JGEOM = 6
-, POISSON
-, PENALTY = 1000
-, RESTITUTION_COEFFICIENT = 1
-, COULOMB_FRICTION = ON
-, MU_STATIC = 0.3
-, MU_DYNAMIC = 0.1
-, STICTION_TRANSITION_VELOCITY = 100
-, FRICTION_TRANSITION_VELOCITY = 1000
+!CONTACT/15
+!, TYPE = SOLID_TO_SOLID
+!, IGEOM = 2
+!, JGEOM = 6
+!, POISSON
+!, PENALTY = 1000
+!, RESTITUTION_COEFFICIENT = 1
+!, COULOMB_FRICTION = ON
+!, MU_STATIC = 0.3
+!, MU_DYNAMIC = 0.1
+!, STICTION_TRANSITION_VELOCITY = 100
+!, FRICTION_TRANSITION_VELOCITY = 1000
 !
 !                   adams_view_name='SFORCE_1_force_graphic_1'
 GRAPHICS/61
@@ -509,16 +509,16 @@ JOINT/1
 , J = 2
 !
 !                           adams_view_name='JOINT_2'
-JOINT/2
-, REVOLUTE
-, I = 3
-, J = 4
+!JOINT/2
+!, REVOLUTE
+!, I = 3
+!, J = 4
 !
 !                           adams_view_name='JOINT_3'
-JOINT/3
-, REVOLUTE
-, I = 5
-, J = 6
+!JOINT/3
+!, REVOLUTE
+!, I = 5
+!, J = 6
 !
 !                           adams_view_name='JOINT_4'
 JOINT/4
@@ -527,10 +527,10 @@ JOINT/4
 , J = 8
 !
 !                           adams_view_name='JOINT_5'
-JOINT/5
-, REVOLUTE
-, I = 9
-, J = 10
+!JOINT/5
+!, REVOLUTE
+!, I = 9
+!, J = 10
 !
 !                           adams_view_name='JOINT_6'
 JOINT/6
@@ -539,24 +539,24 @@ JOINT/6
 , J = 12
 !
 !                           adams_view_name='JOINT_7'
-JOINT/7
-, REVOLUTE
-, I = 13
-, J = 14
+!JOINT/7
+!, REVOLUTE
+!, I = 13
+!, J = 14
 !
 !                           adams_view_name='JOINT_8'
-JOINT/8
-, TRANSLATIONAL
-, I = 15
-, J = 16
+!JOINT/8
+!, TRANSLATIONAL
+!, I = 15
+!, J = 16
 !
 !                           adams_view_name='JOINT_9'
-JOINT/9
-, TRANSLATIONAL
-, I = 17
-, J = 18
+!JOINT/9
+!, TRANSLATIONAL
+!, I = 17
+!, J = 18
 !
-!                           adams_view_name='Top_Tark'
+!                          adams_view_name='Rear_Tark'
 SFORCE/1
 , ROTATIONAL
 , I = 39
@@ -564,7 +564,7 @@ SFORCE/1
 , ACTIONONLY
 , FUNCTION = VARVAL(1)
 !
-!                         adams_view_name='Bottom_Tark'
+!                          adams_view_name='Front_Tark'
 SFORCE/2
 , ROTATIONAL
 , I = 41
@@ -572,33 +572,25 @@ SFORCE/2
 , ACTIONONLY
 , FUNCTION = VARVAL(2)
 !
-!                          adams_view_name='Torque_top'
+!                         adams_view_name='Torque_rear'
 VARIABLE/1
 , IC = 0
 , FUNCTION = 0
 !
-!                        adams_view_name='Torque_bottom'
+!                         adams_view_name='Torque_front'
 VARIABLE/2
 , IC = 0
 , FUNCTION = 0
 !
-!                          adams_view_name='Theta_top'
+!                          adams_view_name='Theta_rear'
 VARIABLE/3
 , IC = 0
-, FUNCTION = VARVAL(6)
+, FUNCTION = varval(5)
 !
-!                         adams_view_name='Theta_bottom'
+!                         adams_view_name='Theta_front'
 VARIABLE/4
 , IC = 0
-, FUNCTION = VARVAL(5)
-!
-!                      adams_view_name='Meas_Bottom_Angle'
-VARIABLE/5
-, FUNCTION = RTOD*INCANG(31,12,34)
-!
-!                        adams_view_name='Meas_Top_Angle'
-VARIABLE/6
-, FUNCTION = RTOD*INCANG(38,8,31)
+, FUNCTION = varval(6)
 !
 !                           adams_view_name='PINPUT_1'
 PINPUT/1
@@ -644,6 +636,30 @@ PINPUT/4
 POUTPUT/4
 , VARIABLES = 3, 4
 !
+!                        adams_view_name='MEAS_ANGLE_TOP'
+VARIABLE/5
+, FUNCTION = RTOD*INCANG(38,8,31)
+!
+!                      adams_view_name='MEAS_ANGLE_BOTTOM'
+VARIABLE/6
+, FUNCTION = RTOD*INCANG(31,12,34)
+!
+!                          adams_view_name='CONTACT_16'
+CONTACT/16
+, TYPE = SOLID_TO_SOLID
+, IGEOM = 1
+, JGEOM = 7
+, IMPACT
+, STIFFNESS = 1.0E+05
+, DAMPING = 10
+, DMAX = 0.1
+, EXPONENT = 2.2
+, COULOMB_FRICTION = ON
+, MU_STATIC = 0.3
+, MU_DYNAMIC = 0.1
+, STICTION_TRANSITION_VELOCITY = 100
+, FRICTION_TRANSITION_VELOCITY = 1000
+!
 !                          adams_view_name='MARKER_49'
 MARKER/49
 , PART = 2
@@ -657,28 +673,28 @@ GRAPHICS/1
 , FACETING_TOLERANCE = 300.0028
 !
 !                          adams_view_name='MARKER_43'
-MARKER/43
-, PART = 3
+!MARKER/43
+!, PART = 3
 !
 !                            adams_view_name='SOLID2'
-GRAPHICS/2
-, EXTERNAL
-, RM = 43
-, FILE = Controls_Plant_1.xmt_txt
-, ELEMENT = SOLID2
-, FACETING_TOLERANCE = 300.0028
+!GRAPHICS/2
+!, EXTERNAL
+!, RM = 43
+!, FILE = Controls_Plant_1.xmt_txt
+!, ELEMENT = SOLID2
+!, FACETING_TOLERANCE = 300.0028
 !
 !                          adams_view_name='MARKER_44'
-MARKER/44
-, PART = 4
+!MARKER/44
+!, PART = 4
 !
 !                            adams_view_name='SOLID3'
-GRAPHICS/3
-, EXTERNAL
-, RM = 44
-, FILE = Controls_Plant_1.xmt_txt
-, ELEMENT = SOLID3
-, FACETING_TOLERANCE = 300.0028
+!GRAPHICS/3
+!, EXTERNAL
+!, RM = 44
+!, FILE = Controls_Plant_1.xmt_txt
+!, ELEMENT = SOLID3
+!, FACETING_TOLERANCE = 300.0028
 !
 !                          adams_view_name='MARKER_48'
 MARKER/48
@@ -693,28 +709,28 @@ GRAPHICS/4
 , FACETING_TOLERANCE = 300.0028
 !
 !                          adams_view_name='MARKER_45'
-MARKER/45
-, PART = 6
+!MARKER/45
+!, PART = 6
 !
 !                            adams_view_name='SOLID5'
-GRAPHICS/5
-, EXTERNAL
-, RM = 45
-, FILE = Controls_Plant_1.xmt_txt
-, ELEMENT = SOLID5
-, FACETING_TOLERANCE = 300.0028
+!GRAPHICS/5
+!, EXTERNAL
+!, RM = 45
+!, FILE = Controls_Plant_1.xmt_txt
+!, ELEMENT = SOLID5
+!, FACETING_TOLERANCE = 300.0028
 !
 !                          adams_view_name='MARKER_46'
-MARKER/46
-, PART = 7
+!MARKER/46
+!, PART = 7
 !
 !                            adams_view_name='SOLID6'
-GRAPHICS/6
-, EXTERNAL
-, RM = 46
-, FILE = Controls_Plant_1.xmt_txt
-, ELEMENT = SOLID6
-, FACETING_TOLERANCE = 300.0028
+!GRAPHICS/6
+!, EXTERNAL
+!, RM = 46
+!, FILE = Controls_Plant_1.xmt_txt
+!, ELEMENT = SOLID6
+!, FACETING_TOLERANCE = 300.0028
 !
 !                          adams_view_name='MARKER_47'
 MARKER/47
