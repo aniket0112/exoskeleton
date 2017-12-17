@@ -575,22 +575,20 @@ SFORCE/2
 !                         adams_view_name='Torque_rear'
 VARIABLE/1
 , IC = 0
-, FUNCTION = 0
+, FUNCTION = 700
 !
 !                         adams_view_name='Torque_front'
 VARIABLE/2
 , IC = 0
-, FUNCTION = 0
+, FUNCTION = 100
 !
 !                          adams_view_name='Theta_rear'
 VARIABLE/3
-, IC = 0
-, FUNCTION = varval(5)
+, FUNCTION = varval(7)
 !
 !                         adams_view_name='Theta_front'
 VARIABLE/4
-, IC = 0
-, FUNCTION = varval(6)
+, FUNCTION = 25+varval(8)
 !
 !                           adams_view_name='PINPUT_1'
 PINPUT/1
@@ -636,14 +634,6 @@ PINPUT/4
 POUTPUT/4
 , VARIABLES = 3, 4
 !
-!                        adams_view_name='MEAS_ANGLE_TOP'
-VARIABLE/5
-, FUNCTION = RTOD*INCANG(38,8,31)
-!
-!                      adams_view_name='MEAS_ANGLE_BOTTOM'
-VARIABLE/6
-, FUNCTION = RTOD*INCANG(31,12,34)
-!
 !                          adams_view_name='CONTACT_16'
 CONTACT/16
 , TYPE = SOLID_TO_SOLID
@@ -659,6 +649,14 @@ CONTACT/16
 , MU_DYNAMIC = 0.1
 , STICTION_TRANSITION_VELOCITY = 100
 , FRICTION_TRANSITION_VELOCITY = 1000
+!
+!                       adams_view_name='MEAS_ANGLE_REAR'
+VARIABLE/7
+, FUNCTION = RTOD * AZ(7,8)
+!
+!                       adams_view_name='MEAS_ANGLE_FRONT'
+VARIABLE/8
+, FUNCTION = RTOD * AZ(11,12)
 !
 !                          adams_view_name='MARKER_49'
 MARKER/49

@@ -17,16 +17,16 @@ model display model=.Exo_tark_controlled view=all
 ! 
 ! Model verified successfully
 view manage orient view=iso up_axis=(.MDI.up_axis) forward_axis=(.MDI.forward_axis)
+view manage orient view=iso up_axis=(.MDI.up_axis) forward_axis=(.MDI.forward_axis)
+view zoom auto=on
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-! MODIFY View Translate
+!  SELECT OBJECT
 undo begin
 default coordinate_system default_coordinate_system=.Exo_tark_controlled
-view center view=.gui.main.front object=-187.0273217711, 16.0001059282, 301.6545674995
 undo end
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-view zoom auto=on
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !  SELECT OBJECT
@@ -34,3 +34,32 @@ undo begin
 undo end
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+interface dialog undisplay dialog=.gui.mea_object_panel
+interface dialog undisplay dialog=.gui.mea_object_panel
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!  SELECT OBJECT
+undo begin
+undo end
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+interface dialog undisplay dialog=.gui.adams_variable_cremod
+interface dialog undisplay dialog=.gui.adams_variable_cremod
+interface dialog undisplay dialog=.gui.adams_variable_cremod
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!  SELECT OBJECT
+undo begin
+group modify group=SELECT_LIST object=.Exo_tark_controlled.bodyframe
+undo end
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!  MODIFY OBJECT
+undo begin
+mdi modify_macro
+undo end
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+interface dialog undisplay dialog=.gui.part_cremod

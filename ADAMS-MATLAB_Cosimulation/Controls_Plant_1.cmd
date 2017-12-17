@@ -83,13 +83,11 @@ data_element create variable  &
 data_element create variable  &
    variable_name = .Exo_tark_controlled.Theta_rear  &
    adams_id = 3  &
-   initial_condition = 0.0  &
    function = ""
 !
 data_element create variable  &
    variable_name = .Exo_tark_controlled.Theta_front  &
    adams_id = 4  &
-   initial_condition = 0.0  &
    function = ""
 !
 data_element create plant input  &
@@ -662,7 +660,8 @@ contact create  &
 !
 force attributes  &
    force_name = .Exo_tark_controlled.CONTACT_1  &
-   active = off
+   active = off  &
+   visibility = off
 !
 contact create  &
    contact_name = .Exo_tark_controlled.CONTACT_2  &
@@ -680,7 +679,8 @@ contact create  &
 !
 force attributes  &
    force_name = .Exo_tark_controlled.CONTACT_2  &
-   active = off
+   active = off  &
+   visibility = off
 !
 contact create  &
    contact_name = .Exo_tark_controlled.CONTACT_3  &
@@ -698,7 +698,8 @@ contact create  &
 !
 force attributes  &
    force_name = .Exo_tark_controlled.CONTACT_3  &
-   active = off
+   active = off  &
+   visibility = off
 !
 contact create  &
    contact_name = .Exo_tark_controlled.CONTACT_4  &
@@ -713,6 +714,10 @@ contact create  &
    mu_dynamic = 0.1  &
    stiction_transition_velocity = 100.0  &
    friction_transition_velocity = 1000.0
+!
+force attributes  &
+   force_name = .Exo_tark_controlled.CONTACT_4  &
+   visibility = off
 !
 contact create  &
    contact_name = .Exo_tark_controlled.CONTACT_5  &
@@ -730,7 +735,8 @@ contact create  &
 !
 force attributes  &
    force_name = .Exo_tark_controlled.CONTACT_5  &
-   active = off
+   active = off  &
+   visibility = off
 !
 contact create  &
    contact_name = .Exo_tark_controlled.CONTACT_6  &
@@ -745,6 +751,10 @@ contact create  &
    mu_dynamic = 0.1  &
    stiction_transition_velocity = 100.0  &
    friction_transition_velocity = 1000.0
+!
+force attributes  &
+   force_name = .Exo_tark_controlled.CONTACT_6  &
+   visibility = off
 !
 contact create  &
    contact_name = .Exo_tark_controlled.CONTACT_7  &
@@ -762,7 +772,8 @@ contact create  &
 !
 force attributes  &
    force_name = .Exo_tark_controlled.CONTACT_7  &
-   active = off
+   active = off  &
+   visibility = off
 !
 contact create  &
    contact_name = .Exo_tark_controlled.CONTACT_8  &
@@ -780,7 +791,8 @@ contact create  &
 !
 force attributes  &
    force_name = .Exo_tark_controlled.CONTACT_8  &
-   active = off
+   active = off  &
+   visibility = off
 !
 contact create  &
    contact_name = .Exo_tark_controlled.CONTACT_9  &
@@ -798,7 +810,8 @@ contact create  &
 !
 force attributes  &
    force_name = .Exo_tark_controlled.CONTACT_9  &
-   active = off
+   active = off  &
+   visibility = off
 !
 contact create  &
    contact_name = .Exo_tark_controlled.CONTACT_10  &
@@ -816,7 +829,8 @@ contact create  &
 !
 force attributes  &
    force_name = .Exo_tark_controlled.CONTACT_10  &
-   active = off
+   active = off  &
+   visibility = off
 !
 contact create  &
    contact_name = .Exo_tark_controlled.CONTACT_11  &
@@ -834,7 +848,8 @@ contact create  &
 !
 force attributes  &
    force_name = .Exo_tark_controlled.CONTACT_11  &
-   active = off
+   active = off  &
+   visibility = off
 !
 contact create  &
    contact_name = .Exo_tark_controlled.CONTACT_12  &
@@ -852,7 +867,8 @@ contact create  &
 !
 force attributes  &
    force_name = .Exo_tark_controlled.CONTACT_12  &
-   active = off
+   active = off  &
+   visibility = off
 !
 contact create  &
    contact_name = .Exo_tark_controlled.CONTACT_13  &
@@ -870,7 +886,8 @@ contact create  &
 !
 force attributes  &
    force_name = .Exo_tark_controlled.CONTACT_13  &
-   active = off
+   active = off  &
+   visibility = off
 !
 contact create  &
    contact_name = .Exo_tark_controlled.CONTACT_14  &
@@ -888,7 +905,8 @@ contact create  &
 !
 force attributes  &
    force_name = .Exo_tark_controlled.CONTACT_14  &
-   active = off
+   active = off  &
+   visibility = off
 !
 contact create  &
    contact_name = .Exo_tark_controlled.CONTACT_15  &
@@ -906,7 +924,8 @@ contact create  &
 !
 force attributes  &
    force_name = .Exo_tark_controlled.CONTACT_15  &
-   active = off
+   active = off  &
+   visibility = off
 !
 contact create  &
    contact_name = .Exo_tark_controlled.CONTACT_16  &
@@ -923,6 +942,10 @@ contact create  &
    mu_dynamic = 0.1  &
    stiction_transition_velocity = 100.0  &
    friction_transition_velocity = 1000.0
+!
+force attributes  &
+   force_name = .Exo_tark_controlled.CONTACT_16  &
+   visibility = off
 !
 !----------------------------------- Joints -----------------------------------!
 !
@@ -941,7 +964,8 @@ constraint create joint revolute  &
 !
 constraint attributes  &
    constraint_name = .Exo_tark_controlled.JOINT_2  &
-   active = off
+   active = off  &
+   visibility = off
 !
 constraint create joint revolute  &
    joint_name = .Exo_tark_controlled.JOINT_3  &
@@ -951,7 +975,8 @@ constraint create joint revolute  &
 !
 constraint attributes  &
    constraint_name = .Exo_tark_controlled.JOINT_3  &
-   active = off
+   active = off  &
+   visibility = off
 !
 constraint create joint revolute  &
    joint_name = .Exo_tark_controlled.JOINT_4  &
@@ -967,7 +992,8 @@ constraint create joint revolute  &
 !
 constraint attributes  &
    constraint_name = .Exo_tark_controlled.JOINT_5  &
-   active = off
+   active = off  &
+   visibility = off
 !
 constraint create joint revolute  &
    joint_name = .Exo_tark_controlled.JOINT_6  &
@@ -983,7 +1009,8 @@ constraint create joint revolute  &
 !
 constraint attributes  &
    constraint_name = .Exo_tark_controlled.JOINT_7  &
-   active = off
+   active = off  &
+   visibility = off
 !
 constraint create joint translational  &
    joint_name = .Exo_tark_controlled.JOINT_8  &
@@ -993,7 +1020,8 @@ constraint create joint translational  &
 !
 constraint attributes  &
    constraint_name = .Exo_tark_controlled.JOINT_8  &
-   active = off
+   active = off  &
+   visibility = off
 !
 constraint create joint translational  &
    joint_name = .Exo_tark_controlled.JOINT_9  &
@@ -1003,7 +1031,8 @@ constraint create joint translational  &
 !
 constraint attributes  &
    constraint_name = .Exo_tark_controlled.JOINT_9  &
-   active = off
+   active = off  &
+   visibility = off
 !
 !----------------------------------- Forces -----------------------------------!
 !
@@ -1032,7 +1061,7 @@ force create direct single_component_force  &
 simulation script create  &
    sim_script_name = .Exo_tark_controlled.Last_Sim  &
    commands =   &
-              "simulation single_run assemble model_name=.Exo_tark_controlled"
+              "simulation single_run transient type=auto_select initial_static=no end_time=5.0 number_of_steps=50 model_name=.Exo_tark_controlled"
 !
 !-------------------------- Adams View UDE Instances --------------------------!
 !
@@ -1163,28 +1192,34 @@ force create body gravitational  &
 !---------------------------------- Measures ----------------------------------!
 !
 !
-measure create angle  &
-   measure_name = .Exo_tark_controlled.MEAS_ANGLE_TOP  &
-   first_point = .Exo_tark_controlled.bodyframe.MARKER_38  &
-   middle_point = .Exo_tark_controlled.rear_arm.MARKER_8  &
-   last_point = .Exo_tark_controlled.rear_arm.cm
+measure create object  &
+   measure_name = .Exo_tark_controlled.MEAS_ANGLE_REAR  &
+   from_first = no  &
+   object = .Exo_tark_controlled.JOINT_4  &
+   characteristic = ax_ay_az_projection_angles  &
+   component = z_component
 !
 data_element attributes  &
-   data_element_name = .Exo_tark_controlled.MEAS_ANGLE_TOP  &
+   data_element_name = .Exo_tark_controlled.MEAS_ANGLE_REAR  &
    color = WHITE
 !
-measure create angle  &
-   measure_name = .Exo_tark_controlled.MEAS_ANGLE_BOTTOM  &
-   first_point = .Exo_tark_controlled.rear_arm.cm  &
-   middle_point = .Exo_tark_controlled.fore_arm.MARKER_12  &
-   last_point = .Exo_tark_controlled.fore_arm.cm
+measure create object  &
+   measure_name = .Exo_tark_controlled.MEAS_ANGLE_FRONT  &
+   from_first = no  &
+   object = .Exo_tark_controlled.JOINT_6  &
+   characteristic = ax_ay_az_projection_angles  &
+   component = z_component
 !
 data_element attributes  &
-   data_element_name = .Exo_tark_controlled.MEAS_ANGLE_BOTTOM  &
+   data_element_name = .Exo_tark_controlled.MEAS_ANGLE_FRONT  &
    color = WHITE
 !
 !---------------------------- Adams View Variables ----------------------------!
 !
+!
+variable create  &
+   variable_name = .Exo_tark_controlled.layout_config  &
+   integer_value = 1
 !
 variable create  &
    variable_name = .Exo_tark_controlled._model  &
@@ -1195,19 +1230,19 @@ variable create  &
 !
 data_element modify variable  &
    variable_name = .Exo_tark_controlled.Torque_rear  &
-   function = "0"
+   function = "700"
 !
 data_element modify variable  &
    variable_name = .Exo_tark_controlled.Torque_front  &
-   function = "0"
+   function = "100"
 !
 data_element modify variable  &
    variable_name = .Exo_tark_controlled.Theta_rear  &
-   function = ".Exo_tark_controlled.MEAS_ANGLE_TOP"
+   function = ".Exo_tark_controlled.MEAS_ANGLE_REAR"
 !
 data_element modify variable  &
    variable_name = .Exo_tark_controlled.Theta_front  &
-   function = ".Exo_tark_controlled.MEAS_ANGLE_BOTTOM"
+   function = "25+.Exo_tark_controlled.MEAS_ANGLE_FRONT"
 !
 force modify direct single_component_force  &
    single_component_force_name = .Exo_tark_controlled.Rear_Tark  &
