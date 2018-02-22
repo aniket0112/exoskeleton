@@ -16,5 +16,3 @@ model display model=.Load_Test view=all
 ! 
 ! 
 ! Model verified successfully
-view manage orient view=iso up_axis=(.MDI.up_axis) forward_axis=(.MDI.forward_axis)
-view zoom auto=on

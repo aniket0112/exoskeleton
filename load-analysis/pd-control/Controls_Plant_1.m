@@ -38,7 +38,7 @@ else
 end
 ADAMS_exec = '' ;
 ADAMS_host = 'AUM' ;
-ADAMS_cwd ='C:\Users\Aniket\Documents\GitHub\exoskeleton\load-analysis'  ;
+ADAMS_cwd ='C:\Users\Aniket\Documents\GitHub\exoskeleton\load-analysis\pd-control'  ;
 ADAMS_prefix = 'Controls_Plant_1' ;
 ADAMS_static = 'no' ;
 ADAMS_solver_type = 'C++' ;

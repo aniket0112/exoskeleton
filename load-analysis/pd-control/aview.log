@@ -17,6 +17,9 @@ model display model=.Load_Test view=all
 ! 
 ! Model verified successfully
 view manage orient view=iso up_axis=(.MDI.up_axis) forward_axis=(.MDI.forward_axis)
+undo begin
+xy_plot template auto_zoom
+undo end
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !  SELECT OBJECT
@@ -26,4 +29,86 @@ undo end
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 view zoom auto=on
-abort
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!  SELECT OBJECT
+undo begin
+group modify group=SELECT_LIST object=.Load_Test.bodyframe
+undo end
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+view zoom auto=on
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!  SELECT OBJECT
+undo begin
+group empty group=SELECT_LIST
+undo end
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+view zoom auto=on
+interface mode repeat=single mode=view_zoom
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! MODIFY View Window Zoom
+undo begin
+view center view=.gui.main.front object = 5712.0187854643, 8373.1292581234, 5139.8874086919
+view zoom view=.gui.main.front zoom = 8.655172066
+undo end
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+interface mode repeat=single mode=view_zoom
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! MODIFY View Window Zoom
+undo begin
+view center view=.gui.main.front object = 6132.6108059854, 6543.9003008244, 6552.6807463483
+view zoom view=.gui.main.front zoom = 8.229507733
+undo end
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+

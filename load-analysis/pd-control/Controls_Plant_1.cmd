@@ -166,7 +166,14 @@ marker create  &
 !
 part create rigid_body mass_properties  &
    part_name = .Load_Test.load  &
-   density = 5.0E-05
+   mass = 3.0  &
+   center_of_mass_marker = .Load_Test.load.cm  &
+   ixx = 8.3775804096  &
+   iyy = 8.3775804096  &
+   izz = 8.3775804096  &
+   ixy = 0.0  &
+   izx = 0.0  &
+   iyz = 0.0
 !
 ! ****** Graphics for current part ******
 !
@@ -1109,8 +1116,7 @@ force create direct single_component_force  &
 simulation script create  &
    sim_script_name = .Load_Test.Last_Sim  &
    commands =   &
-              "simulation single_run transient type=auto_select initial_static=no forever=true step_size=1.0E-02 model_name=.MODEL_4",  &
-              "simulation single_run transient type=auto_select initial_static=no forever=true step_size=1.0E-02 model_name=.MODEL_4"
+              "simulation single_run transient type=auto_select initial_static=no forever=true step_size=0.1 model_name=.Load_Test"
 !
 !-------------------------- Adams View UDE Instances --------------------------!
 !
@@ -1326,10 +1332,6 @@ geometry modify shape ellipsoid  &
    x_scale_factor = (2 * 1.0cm)  &
    y_scale_factor = (2 * 1.0cm)  &
    z_scale_factor = (2 * 1.0cm)
-!
-part modify rigid_body mass_properties  &
-   part_name = .Load_Test.load  &
-   density = (50000(kg/meter**3))
 !
 material modify  &
    material_name = .Load_Test.steel  &

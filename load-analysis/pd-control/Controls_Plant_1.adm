@@ -592,7 +592,7 @@ SFORCE/4
 !
 !                             adams_view_name='load'
 PART/9
-, MASS = 0.2094395102
+, MASS = 3
 , CM = 72
 , IP = 8.37758041, 8.37758041, 8.37758041
 !
