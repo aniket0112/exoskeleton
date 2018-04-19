@@ -76,22 +76,23 @@ void move(int dir_pin, int pwm_pin, int pwm) {
   }
   analogWrite(pwm_pin, abs(pwm));
   if(pwm < 0) {
-    digitalWrite(dir_pin, HIGH);
+    digitalWrite(dir_pin, HIGH);  
   } else {
     digitalWrite(dir_pin, LOW);    
   }
 }
 
+bool motor_enable = true;
 int f_out = 0, b_out = 0;
-float f_setpoint = 20, b_setpoint = 25;
-Controller f_control(20,0,0,1), b_control(0,0,0,1);
+float f_setpoint = 28, b_setpoint = 25;
+struct jointAngle joint_angle;
+Controller f_control(35,0,0,0.5), b_control(35,0,0,0.5);
 DistanceSensor f_sensor(F_SENSOR, 10), b_sensor(B_SENSOR, 10);
 InverseKinematics myInvKin(F_LINK_LENGTH,B_LINK_LENGTH);
 
 //Setup pins
 void setup() {
   Serial.begin(9600);
-//  while(!Serial);
   Serial.println("Intialization");
   analogReadResolution(8);
   pinMode(F_DIR,OUTPUT);
@@ -101,10 +102,9 @@ void setup() {
 }
 
 void loop() {
-  Serial.print("Front: "); Serial.print(f_sensor.read()); Serial.print(": PWM: "); Serial.print(f_out); 
-  Serial.print(" Rear: "); Serial.print(b_sensor.read()); Serial.print(": PWM: "); Serial.println(b_out); 
+//  joint_angle = myInvKin.getJointAngle(5,5);
+  
   if(!f_control.within_tolerance(f_setpoint,f_sensor.read())) {                       //Check if error is within tolerance
-  delay(10);
     f_out = f_control.pid(f_setpoint,f_sensor.read());      //If not, compute PID output
   } else {
     f_out = 0;                                              //No output if within tolerance
@@ -114,14 +114,21 @@ void loop() {
   } else {
     b_out = 0;
   }
-  move(F_DIR, F_PWM, f_out);                                //Send direction and pwm signals
-  move(B_DIR, B_PWM, b_out);  
+  Serial.print("Front: "); Serial.print(f_sensor.read()); Serial.print(": PWM: "); Serial.print(f_out); 
+  Serial.print(" Rear: "); Serial.print(b_sensor.read()); Serial.print(": PWM: "); Serial.println(b_out); 
+  if(motor_enable) {   
+    move(F_DIR, F_PWM, f_out);                                //Send direction and pwm signals  
+    move(B_DIR, B_PWM, b_out);  
+  } else {
+    move(F_DIR, F_PWM, 0);                                //Send direction and pwm signals  
+    move(B_DIR, B_PWM, 0);  
+  }
 }
 void serialEvent() {
   String inputString = "";
   while (Serial.available()) {
     char inChar = (char)Serial.read();
-    inputString += inChar;
+    inputString += inChar;  
   }
   if(inputString == "f +") {
     f_control.kp += 5;
@@ -137,6 +144,12 @@ void serialEvent() {
     b_control.kp -= 5;
     if(b_control.kp < 0) b_control.kp = 0;
     Serial.println(b_control.kp);    
+  } else if (inputString == "s") {
+    motor_enable = false;
+    Serial.println("Motor disabled");
+  } else if (inputString == "g") {
+    motor_enable = true;
+    Serial.println("Motor enabled");
   } else {
     Serial.println("Invalid data");
   }
