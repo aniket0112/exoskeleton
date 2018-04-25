@@ -1,18 +1,23 @@
-#include "inv_kinematics.h"
+  #include "inv_kinematics.h"
 
 //Pin number definition
-#define F_DIR 5
-#define F_PWM 7
-#define F_SENSOR A2
-#define F_LINK_LENGTH 10
-#define B_DIR 4
-#define B_PWM 6
-#define B_SENSOR A0
-#define B_LINK_LENGTH 10
+#define F_DIR         5
+#define F_PWM         7
+#define F_SENSOR      A2
+#define B_DIR         4
+#define B_PWM         6
+#define B_SENSOR      A0
+#define JOYSTICK_X    A7
+#define JOYSTICK_Y    A6
+#define SELECT        
 
 #define FILTER_SIZE 10
-//Controller class definition
-class Controller {
+float x = 42, y = -30;
+bool motor_enable = true, limit = false;
+int f_out = 0, b_out = 0;
+float f_setpoint = 0, b_setpoint = 0;
+
+class Controller {                                                                                          //Controller class definition
   public:
   float kp, ki, kd, tol, e = 0, E = 0, e_p = 0;
   Controller(float kp_ = 0, float ki_ = 0, float kd_ = 0, float tol_ = 1) {
@@ -47,8 +52,7 @@ class Controller {
   }
 };
 
-//Distance sensor class definition
-class DistanceSensor {
+class DistanceSensor {                                                                                //Distance sensor class definition
   public:
   uint8_t pin, offset, i = 0;
   bool first_run = true;
@@ -67,8 +71,7 @@ class DistanceSensor {
   }
 };
 
-//Motor move function
-void move(int dir_pin, int pwm_pin, int pwm) {
+void move(int dir_pin, int pwm_pin, int pwm) {                                                          //Motor run function
   if(pwm > 255) {
     pwm = 255;
   } else if (pwm < -255) {
@@ -82,13 +85,30 @@ void move(int dir_pin, int pwm_pin, int pwm) {
   }
 }
 
-bool motor_enable = true;
-int f_out = 0, b_out = 0;
-float f_setpoint = 28, b_setpoint = 25;
+void read_joystick() {                                                                                  //Read analog values from Joystick
+  float a_x = analogRead(JOYSTICK_X);  
+  float a_y = analogRead(JOYSTICK_Y);
+  if(a_x > 160) {
+    x+=1;
+  } else if (a_x < 100) {
+    x-=1;
+  }  
+  if(a_y > 160) {
+    y+=1;
+  } else if(a_y < 100) {
+    y-=1;
+  }
+
+  if(x < 0) x = 0;                                                                                     //Third quadrant operation
+  if (y > 0) y = 0;
+}
+
 struct jointAngle joint_angle;
 Controller f_control(35,0,0,0.5), b_control(35,0,0,0.5);
 DistanceSensor f_sensor(F_SENSOR, 10), b_sensor(B_SENSOR, 10);
-InverseKinematics myInvKin(F_LINK_LENGTH,B_LINK_LENGTH);
+struct manipulator myManipulator {17, 30, 42, 20.3, 20.3, 20};
+struct pistonLength piston_length;
+InverseKinematics myInvKin(myManipulator);
 
 //Setup pins
 void setup() {
@@ -102,28 +122,40 @@ void setup() {
 }
 
 void loop() {
-//  joint_angle = myInvKin.getJointAngle(5,5);
-  
-  if(!f_control.within_tolerance(f_setpoint,f_sensor.read())) {                       //Check if error is within tolerance
-    f_out = f_control.pid(f_setpoint,f_sensor.read());      //If not, compute PID output
+  read_joystick();                                                                      //Analog read joystick x y pins
+  joint_angle = myInvKin.getJointAngle(x,y);                                            //Convert Cartesian coordinates to joint angles
+  if(joint_angle.front_angle == 181 && joint_angle.rear_angle == 181) limit = true;
+  else limit = false;
+  y = -30;
+  Serial.print("Limit:"); Serial.print(limit); Serial.print("\t"); Serial.print(x); Serial.print("\t"); Serial.print(y);
+  Serial.print("\t"); Serial.print(joint_angle.front_angle); Serial.print("\t"); Serial.print(joint_angle.rear_angle);
+  Serial.print("\t"); Serial.print("F: "); Serial.print(f_sensor.read());
+  Serial.print("\t"); Serial.print(" R: "); Serial.print(b_sensor.read());
+  if(!limit) {
+    piston_length = myInvKin.getPistonLength(joint_angle, myManipulator);
+    f_setpoint = piston_length.front;
+    b_setpoint = piston_length.rear;
+    if (f_setpoint > 34) f_setpoint = 34;
+    if (f_setpoint < 23) f_setpoint = 23;
+    if (b_setpoint > 31) b_setpoint = 31;
+    if (b_setpoint < 23) b_setpoint = 23;
+    Serial.print("\t"); Serial.print(piston_length.front); Serial.print("\t"); Serial.print(piston_length.rear);
+    f_out = f_control.pid(f_setpoint,f_sensor.read())*(1 - f_control.within_tolerance(f_setpoint,f_sensor.read()));                                //If not, compute PID output
+    b_out = b_control.pid(b_setpoint,b_sensor.read())*(1-b_control.within_tolerance(b_setpoint,b_sensor.read()));
+    if(motor_enable) {   
+      move(F_DIR, F_PWM, f_out);                                                      //Send direction and pwm signals  
+      move(B_DIR, B_PWM, b_out);  
+    } else {
+      move(F_DIR, F_PWM, 0);                                                          //Send direction and pwm signals  
+      move(B_DIR, B_PWM, 0);  
+    }  
   } else {
-    f_out = 0;                                              //No output if within tolerance
+      move(F_DIR, F_PWM, 0);                                                          //Send direction and pwm signals  
+      move(B_DIR, B_PWM, 0);  
   }
-  if(!b_control.within_tolerance(b_setpoint,b_sensor.read())) {                       //Same proced ure for back arm              
-    b_out = b_control.pid(b_setpoint,b_sensor.read());
-  } else {
-    b_out = 0;
-  }
-  Serial.print("Front: "); Serial.print(f_sensor.read()); Serial.print(": PWM: "); Serial.print(f_out); 
-  Serial.print(" Rear: "); Serial.print(b_sensor.read()); Serial.print(": PWM: "); Serial.println(b_out); 
-  if(motor_enable) {   
-    move(F_DIR, F_PWM, f_out);                                //Send direction and pwm signals  
-    move(B_DIR, B_PWM, b_out);  
-  } else {
-    move(F_DIR, F_PWM, 0);                                //Send direction and pwm signals  
-    move(B_DIR, B_PWM, 0);  
-  }
+  Serial.println("");
 }
+
 void serialEvent() {
   String inputString = "";
   while (Serial.available()) {
