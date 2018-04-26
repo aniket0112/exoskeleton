@@ -40,8 +40,8 @@ struct jointAngle InverseKinematics::getJointAngle(float x, float y) {
 
 struct pistonLength InverseKinematics::getPistonLength(struct jointAngle joint_angle, struct manipulator man) {
   struct pistonLength piston_length;
-  piston_length.rear = sqrt(pow(man.j1j2,2.0)+pow(man.j2j4,2.0)-2.0*man.j1j2*man.j2j4*cosd(180 - fabs(joint_angle.front_angle)));   //Added 180 to convert clockwise fourth quadrant to minor angle of triangle
-  piston_length.front = sqrt(pow(man.j3j5,2.0)+pow(man.j5j6,2.0)-2.0*man.j5j6*man.j3j5*cosd(180 - fabs(joint_angle.rear_angle)));
+  piston_length.rear = sqrt(pow(man.j1j2,2.0)+pow(man.j2j4,2.0)-2.0*man.j1j2*man.j2j4*cosd(180 - fabs(joint_angle.rear_angle)));   //Added 180 to convert clockwise fourth quadrant to minor angle of triangle
+  piston_length.front = sqrt(pow(man.j3j5,2.0)+pow(man.j5j6,2.0)-2.0*man.j5j6*man.j3j5*cosd(180 - fabs(joint_angle.front_angle)));
   return piston_length;
 }
 
