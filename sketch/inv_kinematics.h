@@ -1,5 +1,4 @@
 #ifndef inv_kinematics
-
 #include <cmath>
 #define inv_kinematics
 

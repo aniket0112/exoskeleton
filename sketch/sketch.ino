@@ -1,4 +1,5 @@
-  #include "inv_kinematics.h"
+#include "inv_kinematics.h"
+#include "limit.h"
 
 //Pin number definition
 #define F_DIR         5
@@ -10,7 +11,9 @@
 #define JOYSTICK_X    A7
 #define JOYSTICK_Y    A6
 #define SELECT        
+#define E(x)          pow(10,x)
 
+#define COMPENSATION_X 30.69
 #define FILTER_SIZE 10
 float x = 42, y = -30;
 bool motor_enable = true, limit = false;
@@ -71,6 +74,19 @@ class DistanceSensor {                                                          
   }
 };
 
+struct jointAngle joint_angle;
+struct manipulator myManipulator {17, 29, 42, 20, 20, 20};
+struct pistonLength piston_length;
+
+Controller f_control(35,0,0,0.5), b_control(35,0,0,0.5);
+DistanceSensor f_sensor(F_SENSOR, 10), b_sensor(B_SENSOR, 10);
+Limit Red(-4.52849847*E(-05),-1.64524233*E(-02),-7.97494366*E(-01),4.29108690*E(01));
+Limit Green(2.73863348*E(-03),-8.69626948*E(-02),1.33566794,-7.05966414*E(01));
+Limit Blue(2.97330832*E(-02),-3.08756571*E(00),1.07956357*E(02),-1.29453178*E(03));
+Limit Yellow(6.54441420*E(-05),4.80666575*E(-03),3.15225269*E(-02),-6.80958167*E(01));
+InverseKinematics myInvKin(myManipulator);
+
+
 void move(int dir_pin, int pwm_pin, int pwm) {                                                          //Motor run function
   if(pwm > 255) {
     pwm = 255;
@@ -85,30 +101,40 @@ void move(int dir_pin, int pwm_pin, int pwm) {                                  
   }
 }
 
+bool write_limit(float x, float y, InverseKinematics myInvKin) {
+  struct jointAngle joint_angle = myInvKin.getJointAngle(x,y);
+  struct pistonLength piston_length;
+  piston_length = myInvKin.getPistonLength(joint_angle, myManipulator);
+  float f_setpoint = piston_length.front;
+  float b_setpoint = piston_length.rear;
+  if (f_setpoint > 36) return false;
+  if (f_setpoint < 23) return false;
+  if (b_setpoint > 30) return false;
+  if (b_setpoint < 21) return false;
+  return true;
+}
+
 void read_joystick() {                                                                                  //Read analog values from Joystick
   float a_x = analogRead(JOYSTICK_X);  
   float a_y = analogRead(JOYSTICK_Y);
   if(a_x > 160) {
-    x+=1;
+    limit = write_limit(x+0.5,y,myInvKin);
+    if(limit) x+=0.5;
   } else if (a_x < 100) {
-    x-=1;
+    limit = write_limit(x-0.5,y,myInvKin);
+    if(limit) x-=0.5;
   }  
-  if(a_y > 160) {
-    y+=1;
-  } else if(a_y < 100) {
-    y-=1;
+  if(a_y < 100) {
+    limit = write_limit(x,y+0.5,myInvKin);
+    if(limit) y+=0.5;
+  } else if(a_y > 160) {
+    limit = write_limit(x,y-0.5,myInvKin);
+    if(limit) y-=0.5;
   }
 
   if(x < 0) x = 0;                                                                                     //Third quadrant operation
   if (y > 0) y = 0;
 }
-
-struct jointAngle joint_angle;
-Controller f_control(35,0,0,0.5), b_control(35,0,0,0.5);
-DistanceSensor f_sensor(F_SENSOR, 10), b_sensor(B_SENSOR, 10);
-struct manipulator myManipulator {17, 30, 42, 20.3, 20.3, 20};
-struct pistonLength piston_length;
-InverseKinematics myInvKin(myManipulator);
 
 //Setup pins
 void setup() {
@@ -122,37 +148,28 @@ void setup() {
 }
 
 void loop() {
-  read_joystick();                                                                      //Analog read joystick x y pins
-  joint_angle = myInvKin.getJointAngle(x,y);                                            //Convert Cartesian coordinates to joint angles
-  if(joint_angle.front_angle == 181 && joint_angle.rear_angle == 181) limit = true;
-  else limit = false;
-  y = -30;
+  read_joystick();                                                                      //Analog read joystick x y pins  
+  if(limit) joint_angle = myInvKin.getJointAngle(x,y);                                            //Convert Cartesian coordinates to joint angles
   Serial.print("Limit:"); Serial.print(limit); Serial.print("\t"); Serial.print(x); Serial.print("\t"); Serial.print(y);
   Serial.print("\t"); Serial.print(joint_angle.front_angle); Serial.print("\t"); Serial.print(joint_angle.rear_angle);
   Serial.print("\t"); Serial.print("F: "); Serial.print(f_sensor.read());
   Serial.print("\t"); Serial.print(" R: "); Serial.print(b_sensor.read());
-  if(!limit) {
+  if(limit) {
     piston_length = myInvKin.getPistonLength(joint_angle, myManipulator);
     f_setpoint = piston_length.front;
     b_setpoint = piston_length.rear;
-    if (f_setpoint > 34) f_setpoint = 34;
-    if (f_setpoint < 23) f_setpoint = 23;
-    if (b_setpoint > 31) b_setpoint = 31;
-    if (b_setpoint < 23) b_setpoint = 23;
     Serial.print("\t"); Serial.print(piston_length.front); Serial.print("\t"); Serial.print(piston_length.rear);
-    f_out = f_control.pid(f_setpoint,f_sensor.read())*(1 - f_control.within_tolerance(f_setpoint,f_sensor.read()));                                //If not, compute PID output
-    b_out = b_control.pid(b_setpoint,b_sensor.read())*(1-b_control.within_tolerance(b_setpoint,b_sensor.read()));
-    if(motor_enable) {   
-      move(F_DIR, F_PWM, f_out);                                                      //Send direction and pwm signals  
-      move(B_DIR, B_PWM, b_out);  
-    } else {
-      move(F_DIR, F_PWM, 0);                                                          //Send direction and pwm signals  
-      move(B_DIR, B_PWM, 0);  
-    }  
-  } else {
-      move(F_DIR, F_PWM, 0);                                                          //Send direction and pwm signals  
-      move(B_DIR, B_PWM, 0);  
+    
   }
+  f_out = f_control.pid(f_setpoint,f_sensor.read())*(1 - f_control.within_tolerance(f_setpoint,f_sensor.read()));                                //If not, compute PID output
+  b_out = b_control.pid(b_setpoint,b_sensor.read())*(1-b_control.within_tolerance(b_setpoint,b_sensor.read()));
+  if(motor_enable) {   
+    move(F_DIR, F_PWM, f_out);                                                      //Send direction and pwm signals  
+    move(B_DIR, B_PWM, b_out);  
+  } else {
+    move(F_DIR, F_PWM, 0);                                                          //Send direction and pwm signals  
+    move(B_DIR, B_PWM, 0);  
+  } 
   Serial.println("");
 }
 
